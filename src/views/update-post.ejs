@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epica TP Final</title>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body class="bg-white py-3">
+  <a href="/posts" class="btn btn-outline-info h6">Volver</a>
+  <div class="container bg-white text-black">
+
+    <h4>Modificar peli</h4>
+    <form action="/posts/update" method="post">
+      <div class="mb-3">
+        <input type="text" name="id" value="<%= post.id %>" hidden>
+        <label for="title" class="form-label">Ingresa el Titulo</label>
+        <input type="text" class="form-control" id="title" name="title" value="<%= post.title %>">
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label">Ingresa el nuevo contenido</label>
+        <textarea class="form-control" id="content" name="content" rows="5"><%= post.content %></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="imageUrl" class="form-label">Copia y pega la URL de la Imagen:</label>
+        <input type="text" class="form-control" id="imageUrl" name="imageUrl" value="<%= post.imageUrl %>">
+      </div>
+      <button type="submit" class="btn btn-info"><i class="fa-solid"></i> Modificar</button>
+    </form>
+  </div>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

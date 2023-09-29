@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trabajo Final</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"   
+          />
+    />
+  </head>
+  <body>
+    
+        <h1>Mis Peliculas:</h1>
+        <% allPosts.forEach((post) => { %>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+              <img
+                src="<%= post.imageUrl %>"
+                class="img-fluid rounded-start p-3"
+                alt="<%= post.title%>"/>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title"><%= post.title %></h5>
+                <p class="card-text text-start"><%= post.content %></p>
+                <p class="card-text text-end">
+                  <small
+                    style="color: rgb(255, 0, 64) !important"
+                    class="text-body-secondary">Creado el: <%= post.createdAt.toLocaleDateString('es-AR')%></small>
+                </p>
+                <p class="text-end">
+                  <a href="/posts/update/<%= post.id %>" class="btn btn-warning"
+                    ><i class="btn btn-success"> Actualizar</i></a>
+                  <a href="/posts/delete/<%= post.id %>" class="btn btn-danger">
+                    <i class="btn btn-danger"> Eliminar</i></a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+        <p>
+          <a href="/posts/create" class="btn btn-outline-dark">
+            <i class="btn btn-outline-light"></i> Recomendame Otra pelicula</a>
+        </p>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
